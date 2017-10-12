@@ -19,6 +19,7 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/reposit
       cp /usr/share/zoneinfo/${TIMEZONE} /etc/localtime && \
       echo "${TIMEZONE}" > /etc/timezone && \
       apk add --update \
+      php7-fileinfo \
       php7-imagick \
       php7-intl \
       php7-mbstring \
