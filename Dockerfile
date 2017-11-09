@@ -71,13 +71,15 @@ ENV HOME /home/www-data
 COPY profile $HOME/.profile
 ENV ENV $HOME/.profile
 
-USER www-data
-
 # Set Workdir
-# WORKDIR /www
+WORKDIR /www
 
 # Expose volumes
-# VOLUME ["/www"]
+VOLUME ["/www"]
+
+RUN chown -R www-data:www-data $HOME
+
+USER www-data
 
 # Expose ports
 EXPOSE 9000
