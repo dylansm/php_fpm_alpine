@@ -12,6 +12,7 @@ ENV PHP_MAX_FILE_UPLOAD 200
 ENV PHP_MAX_POST        200M
 
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
+<<<<<<< HEAD
     apk update && \
     apk upgrade && \
     apk add --update tzdata && \
@@ -74,10 +75,10 @@ ENV ENV $HOME/.profile
 USER www-data
 
 # Set Workdir
-WORKDIR /www
+# WORKDIR /www
 
 # Expose volumes
-VOLUME ["/www"]
+# VOLUME ["/www"]
 
 # Expose ports
 EXPOSE 9000
