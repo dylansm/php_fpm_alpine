@@ -18,6 +18,8 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/reposit
     cp /usr/share/zoneinfo/${TIMEZONE} /etc/localtime && \
     echo "${TIMEZONE}" > /etc/timezone && \
     apk add --update \
+    imagemagick \
+    php7-fileinfo \
     php7-imagick \
     php7-intl \
     php7-mbstring \
@@ -60,9 +62,7 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/reposit
     mkdir /www && \
     apk del tzdata && \
     rm -rf /var/cache/apk/* && \
-    set -x ; \
-    addgroup -g 82 -S www-data ; \
-    adduser -u 82 -D -S -G www-data www-data && exit 0 ; exit 1
+    addgroup -g 1000 www-data && adduser -u 1000 -h /home/app -s /bin/sh -D -G www-data www-data
 
 RUN chown -R www-data:www-data /var/log/php7
 
